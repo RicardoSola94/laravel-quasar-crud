@@ -47,15 +47,17 @@ export default defineComponent({
       getProducts()
     })
 
+    //Obtener todos los productos
     const getProducts = async () => {
                 const data = await list()
                 products.value = data
             }
 
+    //Eliminar productos
     const deleteProduct = async (id) => {
       try{
         $q.dialog({
-          title: 'Eliminar',
+          title: 'ELIMINAR',
           message: 'DESEA ELIMINAR ESTE PRODUCTO?',
           ok: {
             push: true
@@ -75,15 +77,9 @@ export default defineComponent({
       }
     }
 
-    const editProduct = async (id) => {
+    const editProduct = (id) => {
       route.push({ name: 'formProduct', params: { id }})
-      try {
-
-      } catch (error) {
-
-      }
     }
-
 
     return {
       products,

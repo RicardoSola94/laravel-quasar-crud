@@ -1,6 +1,8 @@
 import { api } from 'boot/axios'
 
 export default function useApi (url){
+
+    //Obtener productos del api
     const list = async () => {
         try  {
             const { data } = await api.get(url)
@@ -9,6 +11,7 @@ export default function useApi (url){
         }
     }
 
+    //Obtener producto dado un Id del api
     const getById = async (id) => {
         try  {
             const { data } = await api.get(url + '/' + id)
@@ -17,6 +20,7 @@ export default function useApi (url){
         }
     }
 
+    //Crear producto api
     const post = async (parametros) => {
         try  {
             const { data } = await api.post(url, parametros)
@@ -25,6 +29,7 @@ export default function useApi (url){
         }
     }
 
+    //Update producto api
     const update = async (parametros) => {
         try  {
             const { data } = await api.put(url + '/' + parametros.id, parametros)
@@ -33,6 +38,7 @@ export default function useApi (url){
         }
     }
 
+    //Eliminar producto api
     const remove = async (id) => {
         try  {
             const { data } = await api.delete(url + '/' + id)

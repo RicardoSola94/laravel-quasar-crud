@@ -83,6 +83,7 @@ export default defineComponent ({
             }
         })
 
+        //Obtener productos dado un id
         const getProduct = async (id) => {
             try {
                 const data = await getById(id)
@@ -92,6 +93,7 @@ export default defineComponent ({
             }
         }
 
+        //Guardar y Editar producto
         const onSubmit = async () => {
             try {
                 if(form.value.id){

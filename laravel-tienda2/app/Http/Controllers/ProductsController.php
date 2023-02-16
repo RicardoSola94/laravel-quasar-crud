@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductsController extends Controller
 {
+    //Api para obtener productos
     public function index()
     {
         $products = Products::all();
         return response()->json($products);
     }
 
+    //Api para guardar productos
     public function store(Request $request)
     {
         $respuesta = [];
@@ -30,12 +32,14 @@ class ProductsController extends Controller
         }
     }
 
+    //Api para buscar productos dado un Id
     public function show($id)
     {
         $product = Products::find($id);
         return response()->json($product);
     }
 
+    //Api para modificar un producto
     public function update(Request $request, $id)
     {
         $respuesta = [];
@@ -57,6 +61,7 @@ class ProductsController extends Controller
         }
     }
 
+    //Api para eliminar un producto
     public function destroy($id)
     {
         $respuesta = [];
@@ -72,6 +77,7 @@ class ProductsController extends Controller
         return response()->json($respuesta);
     }
 
+    //Funcion de validaciones
     public function validar($parametros)
     {
         $respuesta = [];
